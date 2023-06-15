@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_15_065213) do
+ActiveRecord::Schema.define(version: 2023_06_15_090101) do
 
   create_table "pictures", force: :cascade do |t|
     t.text "image"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2023_06_15_065213) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "pictures", "users"
