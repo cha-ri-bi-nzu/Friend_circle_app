@@ -10,6 +10,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header>
+    <h1><%= link_to "Hand", pictures_path(current_user.id) %></h1>
+  </header>
+
+
   <body>
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
@@ -25,4 +30,8 @@
 
     <%= yield %>
   </body>
+
+  <footer>
+    <%= link_to "ハンドマガジン TOP", pictures_path(current_user.id) %>
+  </footer>
 </html>
