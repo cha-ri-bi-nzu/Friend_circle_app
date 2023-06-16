@@ -14,28 +14,31 @@
  *= require_self
  */
 
-header, body, footer {
+body {
   margin: 0px auto;
+  width: 80%;
+}
+
+div{
+  background-color: #f0ffff;
 }
 
 header, footer {
   background-color: #cef;
 }
 
-header h1 {
+header a {
+  margin: 20px auto 20px 20px;
   color: #fff;
   text-decoration: none;
 }
 
-footer p {
+footer a {
   color: #fff;
   text-decoration: none;
-}
-
-header {
-  margin: 20px 20px 20px auto;
 }
 
 footer {
   border: 20px 20px 20px auto;
+  text-align: center;
 }
