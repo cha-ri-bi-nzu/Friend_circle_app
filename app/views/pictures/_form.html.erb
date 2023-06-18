@@ -1,9 +1,9 @@
-<%= form_with(model: @picture, local: true, url: choose_new_or_edit) do |form| %>
+<%= form_with(model: @picture, local: true , url: choose_new_or_edit) do |form| %>
   <% if @picture.errors.any? %>
     <div id="error_explanation">
       <h2><%= @picture.errors.count %>件のエラーがあります。</h2>
       <ul>
-        < @picture.errors.full_message.each do |msg| %>
+        <% @picture.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
@@ -12,10 +12,18 @@
 
   <div class = "field">
     <%= form.label :画像を選んでね %>
-    <%= form.text_field :image %>
+    <%= form.file_field :image %>
   </div>
+  <br>
   <div class = "field">
     <%= form.label :一言添えて %>
     <%= form.text_area :content %>
   </div>
+  <br>
+  <% if @picture.id.present? %>
+    <%= form.submit :修正できた？ %>
+  <% else %>
+    <%= form.submit :投稿じゃー！ %>
+  <% end %>
+  <br>
 <% end %>
