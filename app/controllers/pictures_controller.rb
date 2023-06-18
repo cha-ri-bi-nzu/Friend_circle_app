@@ -20,6 +20,7 @@ class PicturesController < ApplicationController
   end
 
   def confirm
+    @picture = Picture.new(picture_params)
   end
 
   def show
@@ -37,12 +38,14 @@ class PicturesController < ApplicationController
   end
 
   def destroy
+    @picture.destroy
+    redirect_to pictures_path, notice:"消せた(´ω｀)b"
   end
 
   private
 
   def picture_params
-    params.require(:picture).permit(:image, :image_cache)
+    params.require(:picture).permit(:image, :image_cache, :content)
   end
 
   def set_picture
