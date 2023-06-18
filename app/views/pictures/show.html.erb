@@ -1,2 +1,7 @@
-<h1>Pictures#show</h1>
-<p>Find me in app/views/pictures/show.html.erb</p>
+<h3>確認がめん</h3>
+
+<br>
+<p>　画　像　: <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %></p>
+<br>
+<p>添えた一言: <%= @picture.content %></p>
+<br>
