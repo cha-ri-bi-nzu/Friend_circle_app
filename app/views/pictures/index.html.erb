@@ -2,12 +2,14 @@
 
 <table>
   <tr>
+    <th>投稿者さん</th>
     <th>画像</th>
     <th>コメント</th>
   </tr>
   <% @pictures.each do |picture| %>
     <tr>
-      <td><%= picture.image %></td>
+    <td><%= picture.user.name %></td>
+      <td><%= image_tag(picture.image.url) if picture.image && picture.image.url %></td>
       <td><%= picture.content %></td>
       <td><%= link_to '確認', picture_path(picture.id) %></td>
       <td><%= link_to '書き直し', edit_picture_path(picture.id) %></td>
