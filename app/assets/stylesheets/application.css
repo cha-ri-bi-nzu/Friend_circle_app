@@ -16,7 +16,10 @@
 
 body {
   margin: 0px auto;
-  width: 80%;
+  max-width: 750px;
+}
+body div div, header a {
+  margin-left: 15px;
 }
 
 div{
@@ -27,18 +30,23 @@ header, footer {
   background-color: #cef;
 }
 
-header a {
-  margin: 20px auto 20px 20px;
-  color: #fff;
-  text-decoration: none;
+header {
+  height: 70px;
+  width: 100%;
 }
 
-footer a {
+header a {
+  line-height: 70px;
   color: #fff;
   text-decoration: none;
 }
 
 footer {
-  border: 20px 20px 20px auto;
+  height: 50px;
   text-align: center;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
 }
