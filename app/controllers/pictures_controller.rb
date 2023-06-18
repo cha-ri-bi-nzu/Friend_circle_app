@@ -1,6 +1,8 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :are_you_current_user?, only: [:edit, :update, :destroy]
   
+
   def index
     @pictures = Picture.all
   end
@@ -10,7 +12,6 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = Picture.new(picture_params)
     @picture = current_user.pictures.build(picture_params)
     if @picture.save
       redirect_to pictures_path, notice: "投稿でけた👍"
@@ -38,8 +39,8 @@ class PicturesController < ApplicationController
   end
 
   def destroy
-    @picture.destroy
-    redirect_to pictures_path, notice:"消せた(´ω｀)b"
+      @picture.destroy
+      redirect_to pictures_path, notice:"消せた(´ω｀)b"
   end
 
   private
@@ -50,5 +51,11 @@ class PicturesController < ApplicationController
 
   def set_picture
     @picture = Picture.find(params[:id])
+  end
+
+  def are_you_current_user?
+    unless @picture.user_id == current_user.id
+      redirect_to pictures_path
+    end
   end
 end
